@@ -1,0 +1,29 @@
+<div class="form-label-group">
+  <input [ngClass]="(controlDir && controlDir.control && controlDir.control.touched) ? !controlDir.control.valid ? 'is-invalid' : 'is-valid' : null"
+         [type]="type"
+         (input)="onChange($event.target.value)"
+         (blur)="onTouched()"
+         id="{{label}}"
+         #input
+         class="form-control"
+         placeholder="{{label}}">
+
+  <!-- here we will check control status beacuse when we are doing an async validation
+       control status in gonna be given a PENDING status -->
+  <div *ngIf="controlDir && controlDir.control && controlDir.control.status === 'PENDING'"
+       class="fa fa-spinner fa-spin loader"></div>
+
+  <label for="{{label}}">{{label}}</label>
+  <!-- error messages -->
+  <div class="invalid-feedback" *ngIf="(controlDir && controlDir.control && !controlDir.control.valid && controlDir.control.touched)">
+    <!-- chech to see what type of error this control has -->
+    <span *ngIf="controlDir.control.errors?.required">{{label}} is required</span>
+    <span *ngIf="controlDir.control.errors?.pattern">Invalid email address</span>
+
+  </div>
+
+  <!-- div for async validation who called after synchronous validators -->
+  <div class="invalid-feedback d-block" *ngIf="(controlDir && controlDir.control && !controlDir.control.valid && controlDir.control.dirty)">
+    <span *ngIf="controlDir.control.errors?.emailExists">Email address is in use</span>
+  </div>
+</div>
