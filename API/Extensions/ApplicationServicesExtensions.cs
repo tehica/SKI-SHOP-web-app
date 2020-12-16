@@ -25,6 +25,8 @@ namespace API.Extensions
             // token
             services.AddScoped<ITokenService, TokenService>();
 
+            services.AddScoped<IOrderService, OrderService>();
+
             services.Configure<ApiBehaviorOptions>(options =>
             {
                 options.InvalidModelStateResponseFactory = actionContext =>

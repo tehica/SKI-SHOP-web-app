@@ -22,6 +22,10 @@ namespace API.Helpers
             CreateMap<CustomerBasketDto, CustomerBasket>();
 
             CreateMap<BasketItemDto, BasketItem>();
+
+            // Core.Entities.OrderAggregate.Address
+            // because i have Address class with the same name in Core.Entities.Identity
+            CreateMap<AddressDto, Core.Entities.OrderAggregate.Address>();
         }
     }
 }
