@@ -11,6 +11,11 @@ using API.Extensions;
 using StackExchange.Redis;
 using Infrastructure.Identity;
 
+// git add.
+// git commit -m "message"
+// git push origin master
+
+
 // password for login to all users are: Pa$$w0rd
 #region REDIS SERVER INFO
 /*
