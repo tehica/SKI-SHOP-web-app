@@ -16,5 +16,10 @@ namespace Core.Interfaces
 
         // method for count number of items
         Task<int> CountAsync(ISpecification<T> spec);
+
+        // additional methods to support updating
+        void Add(T entity);
+        void Update(T entity);
+        void Delete(T entity);
     }
 }
