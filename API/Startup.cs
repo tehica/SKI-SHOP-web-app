@@ -11,7 +11,7 @@ using API.Extensions;
 using StackExchange.Redis;
 using Infrastructure.Identity;
 
-// git add.
+// git add .
 // git commit -m "message"
 // git push origin master
 
@@ -55,7 +55,7 @@ using Infrastructure.Identity;
       3.1.201 [C:\Program Files\dotnet\sdk]
 */
 
-// 18. cjelina 221. nisam pogledao
+// 20. nisam pogledao
 
 namespace API
 {
