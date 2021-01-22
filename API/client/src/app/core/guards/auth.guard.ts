@@ -12,8 +12,9 @@ export class AuthGuard implements CanActivate {
   // add account service to check if the user is currently logged in
   constructor(private accountService: AccountService, private router: Router) { }  
 
+  // route -> next
   canActivate(
-    route: ActivatedRouteSnapshot,
+    next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> {
     return this.accountService.currentUser$.pipe(
       map(auth => {

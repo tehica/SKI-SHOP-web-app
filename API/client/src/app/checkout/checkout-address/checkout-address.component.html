@@ -38,8 +38,8 @@
   <button class="btn btn-outline-primary" routerLink="/basket">
     <i class="fa fa-angle-left"></i> Back to Basket
   </button>
-  <!-- [disabled]="checkoutForm.get('addressForm').invalid" -->
-  <button class="btn btn-primary" cdkStepperNext>
+  <!-- get addressForm and check all fields are populated correctly -->
+  <button [disabled]="checkoutForm.get('addressForm').invalid" class="btn btn-primary" cdkStepperNext>
     Go to Delivery <i class="fa fa-angle-right"></i>
   </button>
 </div>

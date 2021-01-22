@@ -55,8 +55,9 @@ using Infrastructure.Identity;
       3.1.201 [C:\Program Files\dotnet\sdk]
 */
 
-// 20. nisam pogledao
+// 22. 280. nisam pogledao
 
+// Warning
 namespace API
 {
     public class Startup
@@ -96,10 +97,13 @@ namespace API
             // with this line we access to class where is IServiceCollection extended
             // and inject this class (ApplicationServicesExtensions) and services here
             services.AddApplicationServices();
+
             // Extensions/IdentityServiceExtensions
             services.AddIdentityServices(_config);
+
             // this method is define in Extensions/SwaggerServiceExtensions class
             services.AddSwaggerDocumentation();
+
             // CORS support
             services.AddCors(options =>
             {

@@ -18,9 +18,14 @@ namespace API.Extensions
         // (this IServiceCollection) is passed as parameter because we want extend this class
         public static IServiceCollection AddApplicationServices(this IServiceCollection services)
         {
+            services.AddSingleton<IResponseCacheService, ResponseCacheService>();
+
             services.AddScoped<IProductRepository, ProductRepository>();
             services.AddScoped<IBasketRepository, BasketRepository>();
             services.AddScoped(typeof(IGenericRepository<>), (typeof(GenericRepository<>)));
+
+            // payment service
+            services.AddScoped<IPaymentService, PaymentService>();
 
             // token
             services.AddScoped<ITokenService, TokenService>();

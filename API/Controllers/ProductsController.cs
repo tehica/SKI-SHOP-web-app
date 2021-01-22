@@ -34,6 +34,8 @@ namespace API.Controllers
             _mapper = mapper;
         }
 
+
+        [Cached(600)]
         // all parameters what we need to pass into method are stored in ProductSpecParams class
         // why we use [FromQuery] Section 6: 64. 6:30
         [HttpGet]
@@ -72,6 +74,7 @@ namespace API.Controllers
             #endregion
         }
 
+        [Cached(600)]
         [HttpGet("{id}")]
         // Swagger already know this status code (200), this is not particulary necessary 
         [ProducesResponseType(StatusCodes.Status200OK)]
@@ -108,13 +111,14 @@ namespace API.Controllers
             #endregion
         }
 
-
+        [Cached(600)]
         [HttpGet("brands")]
         public async Task<ActionResult<IReadOnlyList<ProductBrand>>> GetProductBrands()
         {
             return Ok( await _productBrandRepo.ListAllAsync() );
         }
 
+        [Cached(600)]
         [HttpGet("types")]
         public async Task<ActionResult<IReadOnlyList<ProductType>>> GetProductTypes()
         {
